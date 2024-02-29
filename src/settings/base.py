@@ -1,9 +1,10 @@
 import os
 from pathlib import Path
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-SECRET_KEY = 'django-insecure-4r=l&ac%3&fskd8j5_qfu8gkcpriwc06)s5f&%6o$%dpn&=fpn'
-ALLOWED_HOSTS = ['*']
+SECRET_KEY = config('SECRET_KEY')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
 INSTALLED_APPS = [
     'jazzmin', # 3rd party
